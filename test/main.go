@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"test-project/test"
+
+	"github.com/digitalocean/golang-pipeline/test/test"
 )
 
 func main() {
