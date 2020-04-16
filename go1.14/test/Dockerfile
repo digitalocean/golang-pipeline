@@ -1,4 +1,4 @@
-FROM golang:1.12.9-alpine
+FROM golang:1.14.2-alpine
 
 LABEL name="Golang Pipeline"
 LABEL maintainer="DigitalOcean API Engineering"

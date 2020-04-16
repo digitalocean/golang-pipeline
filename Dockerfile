@@ -1,9 +1,9 @@
 FROM golang
 
 LABEL name="Golang Pipeline"
-LABEL maintainer="Shoukoo"
-LABEL version="0.2.8"
-LABEL repository="https://github.com/shoukoo/golang-pipeline"
+LABEL maintainer="DigitalOcean API Engineering"
+LABEL version="0.3.0"
+LABEL repository="https://github.com/digitalocean/golang-pipeline"
 
 LABEL com.github.actions.name="Golang Pipeline"
 LABEL com.github.actions.description="Introduction"

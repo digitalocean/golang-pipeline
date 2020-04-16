@@ -1,4 +1,4 @@
-<img src="https://github.com/shoukoo/golang-pipeline/workflows/build/badge.svg" class="image mod-full-width" /> <img src="https://img.shields.io/github/v/release/shoukoo/golang-pipeline?sort=semver" class="image mod-full-width" />
+<img src="https://github.com/digitalocean/golang-pipeline/workflows/build/badge.svg" class="image mod-full-width" /> <img src="https://img.shields.io/github/v/release/digitalocean/golang-pipeline?sort=semver" class="image mod-full-width" />
 
 # golang-pipeline
 > Important! This Github Action only supports Go Module
@@ -6,32 +6,34 @@
 ## Quick Install
 Run the below command to create a push workflow in your repo.
 ```bash
-curl -o- https://raw.githubusercontent.com/shoukoo/golang-pipeline/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/digitalocean/golang-pipeline/master/install.sh | bash
 ```
 
 # Workflows
-golang-pipeline supports Go version 1.11, 1.12 and 1.13 and each version has its tests, linters and release. 
+golang-pipeline supports Go version 1.11, 1.12, 1.13, and 1.14 and each version has its tests, linters and release.
 
 **Format**
 ```
-shoukoo/golang-pipeline/<Go versions>/<action name>@master
+digitalocean/golang-pipeline/<Go versions>/<action name>@master
 ```
 
 **Examples**
 ```
 # Run linters in Go1.11
-shoukoo/golang-pipeline/go1.11/linter@master
+digitalocean/golang-pipeline/go1.11/linter@master
 # Run test in Go1.12
-shoukoo/golang-pipeline/go1.12/test@master
+digitalocean/golang-pipeline/go1.12/test@master
 # Run release in Go1.13
-shoukoo/golang-pipeline/go1.13/release@master
+digitalocean/golang-pipeline/go1.13/release@master
+# Run release in Go1.14
+digitalocean/golang-pipeline/go1.14/release@master
 ```
 
 If your Go project is not located at the root of the repo you can also specify environment variable PROJECT_PATH:
 ```
 steps:
-- name: go1.12 test
-  uses: shoukoo/golang-pipeline/go1.12/test@master
+- name: go1.14 test
+  uses: digitalocean/golang-pipeline/go1.14/test@master
   env:
     PROJECT_PATH: "./my/new/path"
 ```
@@ -69,8 +71,8 @@ jobs:
     name: Go Checks
     runs-on: ubuntu-latest
     steps:
-    - name: go1.12 linter
-      uses: shoukoo/golang-pipeline/go1.12/linter@master
+    - name: go1.14 linter
+      uses: digitalocean/golang-pipeline/go1.14/linter@master
       with:
         GOLINT: on
         GOLINTPATH: pkg/controller
@@ -86,8 +88,8 @@ jobs:
     name: Go Checks
     runs-on: ubuntu-latest
     steps:
-    - name: go1.12 test
-      uses: shoukoo/golang-pipeline/go1.12/test@master
+    - name: go1.14 test
+      uses: digitalocean/golang-pipeline/go1.14/test@master
 ```
 
 ## Release:
@@ -109,21 +111,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: osx build
-      uses: shoukoo/golang-pipeline/go1.12/release@master
+      uses: digitalocean/golang-pipeline/go1.14/release@master
       if: github.event.action == 'published'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOOS: darwin
         GOARCH: amd64
     - name: windows build
-      uses: shoukoo/golang-pipeline/go1.12/release@master
+      uses: digitalocean/golang-pipeline/go1.14/release@master
       if: github.event.action == 'published'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOOS: windows
         GOARCH: amd64
     - name: linux build
-      uses: shoukoo/golang-pipeline/go1.12/release@master
+      uses: digitalocean/golang-pipeline/go1.14/release@master
       if: github.event.action == 'published'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -132,4 +134,4 @@ jobs:
 ```
 
 ## Self-Promotion
-Like golang-pipeline? Follow the repository on [GitHub](https://github.com/shoukoo/golang-pipeline) or follow me on [Twitter](https://twitter.com/shoukoo1)
+Like golang-pipeline? Follow the repository on [GitHub](https://github.com/digitalocean/golang-pipeline) or follow the original author on [Twitter](https://twitter.com/shoukoo1)
